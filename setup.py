@@ -22,7 +22,7 @@ setup(name='pipelinewise-tap-slack',
           'slackclient==2.6.0',
       ],
       extras_require={
-          'dev': [
+          'test': [
               'pylint',
               'ipdb',
               'nose'
