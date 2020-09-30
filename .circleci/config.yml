@@ -13,7 +13,7 @@ jobs:
             . venv/bin/activate
             pip install --upgrade pip
             pip install .[test]
-     - run:
+      - run:
          name: 'Pylinting'
          command: |
            . venv/bin/activate
@@ -25,15 +25,5 @@ jobs:
 workflows:
   version: 2
   commit:
-    jobs:
-      - build
-  build_daily:
-    triggers:
-      - schedule:
-          cron: "0 0 * * *"
-          filters:
-            branches:
-              only:
-                - master
     jobs:
       - build
