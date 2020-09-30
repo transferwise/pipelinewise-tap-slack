@@ -1,7 +1,4 @@
-# Changelog
+1.0.0 (2020-09-30)
+-------------------
 
-## 1.0.0
-    * Added some streams, changed the name of some streams [#9](https://github.com/singer-io/tap-slack/pull/9)
-
-## 0.0.1
-  * Initial commit
+- Initial release and fork of https://github.com/singer-io/tap-slack 1.0.0
