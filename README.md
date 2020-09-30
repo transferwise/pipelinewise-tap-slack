@@ -1,8 +1,18 @@
-# ![slack icon](etc/slack_icon.png) tap-slack
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-[![Python 3.7](https://upload.wikimedia.org/wikipedia/commons/f/fc/Blue_Python_3.7_Shield_Badge.svg)](https://www.python.org/downloads/release/python-370/)
+# pipelinewise-tap-slack
 
-Singer.io tap for extracting data from the Slack Web API
+[![PyPI version](https://badge.fury.io/py/pipelinewise-tap-slack.svg)](https://badge.fury.io/py/pipelinewise-tap-slack)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/pipelinewise-tap-slack.svg)](https://pypi.org/project/pipelinewise-tap-slack/)
+[![License: MIT](https://img.shields.io/badge/License-GPLv3-yellow.svg)](https://opensource.org/licenses/GPL-3.0)
+
+[Singer](https://www.singer.io/) tap that extracts data from a [Slack](https://www.slack.com/) workspace and produces JSON-formatted data following the [Singer spec](https://github.com/singer-io/getting-started/blob/master/docs/SPEC.md).
+
+This is a [PipelineWise](https://transferwise.github.io/pipelinewise) compatible tap connector.
+
+## How to use it
+
+The recommended method of running this tap is to use it from [PipelineWise](https://transferwise.github.io/pipelinewise). When running it from PipelineWise you don't need to configure this tap with JSON files and most of things are automated. Please check the related documentation at [Tap Slack](https://transferwise.github.io/pipelinewise/connectors/taps/slack.html)
+
+If you want to run this [Singer Tap](https://singer.io) independently please read further.
 
 ## Installation
 

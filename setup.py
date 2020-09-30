@@ -2,11 +2,20 @@
 
 from setuptools import setup, find_packages
 
-setup(name='tap-slack',
+with open('README.md') as f:
+    long_description = f.read()
+
+setup(name='pipelinewise-tap-slack',
       version='1.0.0',
-      description='Singer.io tap for extracting data from the Slack Web API',
+      description='Singer.io tap for extracting data from the Slack Web API - PipelineWise compatible',
+      long_description=long_description,
+      long_description_content_type='text/markdown',
       author='dwallace@envoy.com',
-      classifiers=['Programming Language :: Python :: 3 :: Only'],
+      url='https://github.com/transferwise/pipelinewise-tap-slack',
+      classifiers=[
+          'License :: OSI Approved :: GNU Affero General Public License v3',
+          'Programming Language :: Python :: 3 :: Only'
+      ],
       py_modules=['tap_slack'],
       install_requires=[
           'singer-python==5.9.0',
