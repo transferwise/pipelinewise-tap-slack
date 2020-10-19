@@ -77,6 +77,24 @@
         "object"
       ]
     },
+    "attachments": {
+      "title": [
+        "null",
+        "string"
+      ],
+      "id": [
+        "null",
+        "integer"
+      ],
+      "color": [
+        "null",
+        "string"
+      ],
+      "fallback": [
+        "null",
+        "string"
+      ]
+    },
     "client_msg_id": {
       "type": [
         "null",
