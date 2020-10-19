@@ -80,22 +80,30 @@
     "attachments": {
       "items": {
         "properties": {
-          "title": [
-            "null",
-            "string"
-          ],
-          "id": [
-            "null",
-            "integer"
-          ],
-          "color": [
-            "null",
-            "string"
-          ],
-          "fallback": [
-            "null",
-            "string"
-          ]
+          "title": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "color": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "fallback": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
         },
         "type": [
           "null",
