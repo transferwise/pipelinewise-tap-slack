@@ -537,7 +537,7 @@ class FilesStream(SlackStream):
                                         # newest -> oldest
                                         min_bookmark = datetime.fromtimestamp(
                                             record_timestamp_int)
-                        self.update_bookmarks(self.name, min_bookmark.strftime(DATETIME_FORMAT))
+                        self.update_bookmarks(self.name, max_bookmark.strftime(DATETIME_FORMAT))
                     # Update the date window
                     date_window_start = date_window_end
                     date_window_end = date_window_start + timedelta(
@@ -617,7 +617,7 @@ class RemoteFilesStream(SlackStream):
                                         # newest -> oldest
                                         min_bookmark = datetime.fromtimestamp(
                                             record_timestamp_int)
-                        self.update_bookmarks(self.name, min_bookmark.strftime(DATETIME_FORMAT))
+                        self.update_bookmarks(self.name, max_bookmark.strftime(DATETIME_FORMAT))
                     # Update the date window
                     date_window_start = date_window_end
                     date_window_end = date_window_start + timedelta(
