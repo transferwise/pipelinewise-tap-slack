@@ -78,21 +78,33 @@
       ]
     },
     "attachments": {
-      "title": [
+      "items": {
+        "properties": {
+          "title": [
+            "null",
+            "string"
+          ],
+          "id": [
+            "null",
+            "integer"
+          ],
+          "color": [
+            "null",
+            "string"
+          ],
+          "fallback": [
+            "null",
+            "string"
+          ]
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
         "null",
-        "string"
-      ],
-      "id": [
-        "null",
-        "integer"
-      ],
-      "color": [
-        "null",
-        "string"
-      ],
-      "fallback": [
-        "null",
-        "string"
+        "array"
       ]
     },
     "client_msg_id": {
