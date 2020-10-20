@@ -56,6 +56,101 @@
     },
     "has_2fa": {
       "type": ["null", "boolean"]
+    },
+    "profile": {
+      "properties": {
+        "avatar_hash": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "status_text": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "status_emoji": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "real_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "display_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "real_name_normalized": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "display_name_normalized": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "email": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "image_24": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "image_32": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "image_48": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "image_72": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "image_192": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "image_512": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": ["null", "object"]
     }
   }
 }
