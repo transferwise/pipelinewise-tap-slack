@@ -41,6 +41,7 @@ The tap requires a [Slack API token](https://github.com/slackapi/python-slackcli
  - `usergroups:read`
  - `users.profile:read`
  - `users:read`
+ - `users:read.email` This scope is only required if you want to extract the user emails as well.
 
 Create a config file containing the API token and a start date, e.g.:
 
