@@ -1,3 +1,10 @@
+1.1.0 (2020-10-20)
+------------------
+
+- Extract user profiles from `users.list` API endpoint
+- Extract message attachments from `conversations.history` API endpoint
+- Fixed an issue when incremental bookmarks were not sent correctly in the `STATE` messages
+
 1.0.1 (2020-10-02)
 ------------------
 
