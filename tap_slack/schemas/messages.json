@@ -78,21 +78,41 @@
       ]
     },
     "attachments": {
-      "title": [
+      "items": {
+        "properties": {
+          "title": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "color": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "fallback": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
         "null",
-        "string"
-      ],
-      "id": [
-        "null",
-        "integer"
-      ],
-      "color": [
-        "null",
-        "string"
-      ],
-      "fallback": [
-        "null",
-        "string"
+        "array"
       ]
     },
     "client_msg_id": {
