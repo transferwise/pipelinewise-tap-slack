@@ -20,4 +20,4 @@ class TestSchemas:
         """Check if the given schema is a valid JSON Schema"""
         for schema in self.get_schemas():
             s = singer.utils.load_json(schema)
-            assert jsonschema.Draft4Validator(s).check_schema(s) is None
+            assert jsonschema.Draft7Validator(s).check_schema(s) is None
