@@ -24,8 +24,7 @@ setup(name='pipelinewise-tap-slack',
       extras_require={
           'test': [
               'pylint',
-              'ipdb',
-              'nose'
+              'pytest'
           ]
       },
       python_requires='>=3.6',

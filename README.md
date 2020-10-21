@@ -189,47 +189,16 @@ The `Users` stream _does_ store information about when a User record was last up
  - API Documentation: [Link](https://api.slack.com/methods/files.remote.list)
  
 ## Testing the Tap
-    
-While developing the Slack tap, the following utilities were run in accordance with Singer.io best practices:
-Pylint to improve [code quality](https://github.com/singer-io/getting-started/blob/master/docs/BEST_PRACTICES.md#code-quality):
+
+Install test dependencies
 ```bash
-> pylint tap_slack -d missing-docstring -d logging-format-interpolation -d too-many-locals -d too-many-arguments
+python3 -m venv venv
+. venv/bin/activate
+pip install --upgrade pip
+pip install .[test]
 ```
-Pylint test resulted in the following score:
+
+To run tests:
 ```bash
-Your code has been rated at 9.72/10 
-
+pytest
 ```
-
-To [check the tap](https://github.com/singer-io/singer-tools#singer-check-tap) and verify working:
-```bash
-> tap-slack --config tap_config.json --catalog catalog.json | singer-check-tap > state.json
-> tail -1 state.json > state.json.tmp && mv state.json.tmp state.json
-```
-Check tap resulted in the following:
- ```bash
-Checking stdin for valid Singer-formatted data
-The output is valid.
-It contained 3657 messages for 9 streams.
-
-    581 schema messages
-   2393 record messages
-    683 state messages
-
-Details by stream:
-+-----------------+---------+---------+
-| stream          | records | schemas |
-+-----------------+---------+---------+
-| threads         | 633     | 573     |
-| user_groups     | 1       | 1       |
-| channel_members | 1049    | 1       |
-| users           | 22      | 1       |
-| channels        | 0       | 1       |
-| remote_files    | 3       | 1       |
-| messages        | 573     | 1       |
-| teams           | 1       | 1       |
-| files           | 111     | 1       |
-+-----------------+---------+---------+
-```
-----
-Copyright &copy; 2019 Stitch
