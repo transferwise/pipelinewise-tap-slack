@@ -304,8 +304,8 @@ class ConversationHistoryStream(SlackStream):
                             date_window_start = date_window_end
                             date_window_end = date_window_start + timedelta(
                                 days=self.date_window_size)
-                            if date_window_end > end:
-                                date_window_end = end
+
+                            date_window_end = min(date_window_end, end)
                         else:
                             date_window_start = date_window_end
 
@@ -542,8 +542,8 @@ class FilesStream(SlackStream):
                     date_window_start = date_window_end
                     date_window_end = date_window_start + timedelta(
                         days=self.date_window_size)
-                    if date_window_end > end:
-                        date_window_end = end
+
+                    date_window_end = min(date_window_end, end)
 
 
 # RemoteFilesStream = Files shared to Slack but not hosted by Slack
@@ -622,8 +622,8 @@ class RemoteFilesStream(SlackStream):
                     date_window_start = date_window_end
                     date_window_end = date_window_start + timedelta(
                         days=self.date_window_size)
-                    if date_window_end > end:
-                        date_window_end = end
+
+                    date_window_end = min(date_window_end, end)
 
 
 AVAILABLE_STREAMS = {
