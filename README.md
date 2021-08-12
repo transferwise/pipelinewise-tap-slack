@@ -21,7 +21,7 @@ It is highly recommended installing `tap-slack` in it's own isolated virtual env
 ```bash
 python3 -m venv ~/.venvs/tap-slack
 source ~/.venvs/tap-slack/bin/activate
-pip3 install tap-slack
+pip3 install pipelinewise-tap-slack
 deactivate
 ```
 
