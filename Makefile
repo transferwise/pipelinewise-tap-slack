@@ -4,10 +4,6 @@ venv:
 	pip install --upgrade pip setuptools wheel ;\
 	pip install -e .[test]
 
-format:
-	. ./venv/bin/activate ;\
-	find tap_snowflake tests -type f -name '*.py' | xargs unify --check-only
-
 pylint:
 	. ./venv/bin/activate ;\
 	pylint tap_slack -d C,W,unexpected-keyword-arg,duplicate-code,too-many-arguments,too-many-locals,too-many-nested-blocks,useless-object-inheritance,no-self-argument,raising-non-exception,no-member
