@@ -10,7 +10,7 @@ setup(name='pipelinewise-tap-slack',
       description='Singer.io tap for extracting data from the Slack Web API - PipelineWise compatible',
       long_description=long_description,
       long_description_content_type='text/markdown',
-      author='dwallace@envoy.com',
+      author='Wise',
       url='https://github.com/transferwise/pipelinewise-tap-slack',
       classifiers=[
           'License :: OSI Approved :: GNU Affero General Public License v3',
@@ -23,8 +23,9 @@ setup(name='pipelinewise-tap-slack',
       ],
       extras_require={
           'test': [
-              'pylint',
-              'pytest'
+              'pylint==2.8.*',
+              'pytest==6.2.*',
+              'pytest-cov==2.12.*',
           ]
       },
       python_requires='>=3.6',
