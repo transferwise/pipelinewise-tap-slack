@@ -192,13 +192,22 @@ The `Users` stream _does_ store information about when a User record was last up
 
 Install test dependencies
 ```bash
-python3 -m venv venv
-. venv/bin/activate
-pip install --upgrade pip
-pip install .[test]
+make venv
 ```
 
 To run tests:
 ```bash
-pytest
+make unit_test
+```
+
+## Linting
+
+Install test dependencies
+```bash
+make venv
+```
+
+To run linter:
+```bash
+make pylint
 ```
