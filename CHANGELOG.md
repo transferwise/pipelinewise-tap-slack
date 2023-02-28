@@ -1,3 +1,8 @@
+1.1.1 (2023-02-28)
+------------------
+- Use `slack-sdk` instead of deprecated `slackclient` library.
+- Increase page size when extracting user profiles from `users.list` API endpoint to circumvent rate limiting.
+
 1.1.0 (2020-10-20)
 ------------------
 
