@@ -331,8 +331,12 @@ class UsersStream(SlackStream):
         # pylint: disable=unused-variable
         with singer.metrics.job_timer(job_type='list_users') as timer:
             with singer.metrics.record_counter(endpoint=self.name) as counter:
-                users_list = self.client.get_users(limit=100)
+                # API returns users in no particular order.
+                # let's fetch 1000 users per page for now, it saves on api requests and avoids running
+                # into rate limiting soon
+                users_list = self.client.get_users(limit=1000)
 
+                # this will encounter rate limit at some point
                 for page in users_list:
                     users = page.get('members')
                     transformed_users = transform_json(stream=self.name, data=users,
