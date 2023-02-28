@@ -328,6 +328,8 @@ class UsersStream(SlackStream):
             bookmark = self.config.get('start_date')
         new_bookmark = bookmark
 
+        LOGGER.info('Fetching all users that have been updated since %s', bookmark)
+
         # pylint: disable=unused-variable
         with singer.metrics.job_timer(job_type='list_users') as timer:
             with singer.metrics.record_counter(endpoint=self.name) as counter:
@@ -346,8 +348,8 @@ class UsersStream(SlackStream):
                                 integer_datetime_fmt="unix-seconds-integer-datetime-parsing") \
                                 as transformer:
                             transformed_record = transformer.transform(data=user, schema=schema,
-                                                                       metadata=metadata.to_map(
-                                                                           mdata))
+                                                                       metadata=metadata.to_map(mdata))
+
                             new_bookmark = max(new_bookmark, transformed_record.get('updated'))
                             if transformed_record.get('updated') > bookmark:
                                 if self.write_to_singer:
@@ -356,6 +358,7 @@ class UsersStream(SlackStream):
                                                         record=transformed_record)
                                     counter.increment()
 
+        LOGGER.info('Updating users state bookmark to %s', new_bookmark)
         self.state = singer.write_bookmark(state=self.state, tap_stream_id=self.name,
                                            key=self.replication_key, val=new_bookmark)
 
