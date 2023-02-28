@@ -8,7 +8,7 @@ from singer.utils import strptime_to_utc
 
 from tap_slack.transform import transform_json
 
-LOGGER = singer.get_logger()
+LOGGER = singer.get_logger(__name__)
 DATETIME_FORMAT = '%Y-%m-%dT%H:%M:%S'
 utc = pytz.UTC
 
@@ -328,11 +328,17 @@ class UsersStream(SlackStream):
             bookmark = self.config.get('start_date')
         new_bookmark = bookmark
 
+        LOGGER.info('Fetching all users that have been updated since %s', bookmark)
+
         # pylint: disable=unused-variable
         with singer.metrics.job_timer(job_type='list_users') as timer:
             with singer.metrics.record_counter(endpoint=self.name) as counter:
-                users_list = self.client.get_users(limit=100)
+                # API returns users in no particular order.
+                # let's fetch 1000 users per page for now, it saves on api requests and avoids running
+                # into rate limiting soon
+                users_list = self.client.get_users(limit=1000)
 
+                # this will encounter rate limit at some point
                 for page in users_list:
                     users = page.get('members')
                     transformed_users = transform_json(stream=self.name, data=users,
@@ -342,8 +348,8 @@ class UsersStream(SlackStream):
                                 integer_datetime_fmt="unix-seconds-integer-datetime-parsing") \
                                 as transformer:
                             transformed_record = transformer.transform(data=user, schema=schema,
-                                                                       metadata=metadata.to_map(
-                                                                           mdata))
+                                                                       metadata=metadata.to_map(mdata))
+
                             new_bookmark = max(new_bookmark, transformed_record.get('updated'))
                             if transformed_record.get('updated') > bookmark:
                                 if self.write_to_singer:
@@ -352,6 +358,7 @@ class UsersStream(SlackStream):
                                                         record=transformed_record)
                                     counter.increment()
 
+        LOGGER.info('Updating users state bookmark to %s', new_bookmark)
         self.state = singer.write_bookmark(state=self.state, tap_stream_id=self.name,
                                            key=self.replication_key, val=new_bookmark)
 

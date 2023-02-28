@@ -1,13 +1,13 @@
 import sys
 import json
 import singer
-from slack import WebClient
+from slack_sdk import WebClient
 
 from tap_slack.client import SlackClient
 from tap_slack.streams import AVAILABLE_STREAMS
 from tap_slack.catalog import generate_catalog
 
-LOGGER = singer.get_logger()
+LOGGER = singer.get_logger(__name__)
 
 
 def auto_join(client, config):
