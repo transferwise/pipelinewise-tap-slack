@@ -6,7 +6,7 @@ import time
 
 import backoff
 import singer
-from slack.errors import SlackApiError
+from slack_sdk.errors import SlackApiError
 
 LOGGER = singer.get_logger()
 
