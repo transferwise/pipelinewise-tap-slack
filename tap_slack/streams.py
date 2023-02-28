@@ -8,7 +8,7 @@ from singer.utils import strptime_to_utc
 
 from tap_slack.transform import transform_json
 
-LOGGER = singer.get_logger()
+LOGGER = singer.get_logger(__name__)
 DATETIME_FORMAT = '%Y-%m-%dT%H:%M:%S'
 utc = pytz.UTC
 

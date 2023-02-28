@@ -8,7 +8,7 @@ import backoff
 import singer
 from slack_sdk.errors import SlackApiError
 
-LOGGER = singer.get_logger()
+LOGGER = singer.get_logger(__name__)
 
 
 class SlackClient(object):
