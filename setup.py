@@ -25,7 +25,7 @@ setup(name='pipelinewise-tap-slack',
           'test': [
               'pylint==2.8.*',
               'pytest==6.2.*',
-              'pytest-cov==2.12.*',
+              'pytest-cov>=2.12,<4.2',
           ]
       },
       python_requires='>=3.6',
