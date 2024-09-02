@@ -1,3 +1,10 @@
+# Notice
+To better serve Wise business and customer needs, the PipelineWise codebase needs to shrink.
+We have made the difficult decision that, going forward many components of PipelineWise will be removed or incorporated in the main repo.
+The last version before this decision is [v0.64.1](https://github.com/transferwise/pipelinewise/tree/v0.64.1)
+
+We thank all in the open-source community, that over the past 6 years, have helped to make PipelineWise a robust product for heterogeneous replication of many many Terabytes, daily
+
 # pipelinewise-tap-slack
 
 [![PyPI version](https://badge.fury.io/py/pipelinewise-tap-slack.svg)](https://badge.fury.io/py/pipelinewise-tap-slack)
@@ -96,12 +103,12 @@ It's important to note that a bot *CANNOT* join an archived channel, so unless t
 Due to the potentially high volume of data when syncing certain streams (messages, files, threads)
 this tap implements date windowing based on a configuration parameter.
 
-including 
+including
 ```json
 "date_window_size": "5"
 ```
 
-Will cause the tap to sync 5 days of data per request, for applicable streams. The default value if 
+Will cause the tap to sync 5 days of data per request, for applicable streams. The default value if
 one is not defined is to window requests for 7 days at a time.
 
 ## Usage
@@ -155,7 +162,7 @@ The `Users` stream _does_ store information about when a User record was last up
  - Primary Key Column: `id`
  - Replication Strategy: `INCREMENTAL`
  - API Documentation: [Link](https://api.slack.com/methods/users.list)
- 
+
 ### Threads (Conversation Replies)
 
  - Table Name: `threads`
@@ -163,31 +170,31 @@ The `Users` stream _does_ store information about when a User record was last up
  - Primary Key Columns: `channel_id`, `ts`, `thread_ts`
  - Replication Strategy: `FULL_TABLE` for each parent `message`
  - API Documentation: [Link](https://api.slack.com/methods/conversations.replies)
- 
-### User Groups 
+
+### User Groups
 
  - Table Name: `user_groups`
  - Description:
  - Primary Key Column: `id`
  - Replication Strategy: `FULL_TABLE`
  - API Documentation: [Link](https://api.slack.com/methods/usergroups.list)
- 
-### Files 
+
+### Files
 
  - Table Name: `files`
  - Description:
  - Primary Key Column: `id`
  - Replication Strategy: `INCREMENTAL` query filtered using date windows and lookback window
  - API Documentation: [Link](https://api.slack.com/methods/files.list)
- 
-### Remote Files 
+
+### Remote Files
 
  - Table Name: `remote_files`
  - Description:
  - Primary Key Column: `id`
  - Replication Strategy: `INCREMENTAL` query filtered using date windows and lookback window
  - API Documentation: [Link](https://api.slack.com/methods/files.remote.list)
- 
+
 ## Testing the Tap
 
 Install test dependencies
